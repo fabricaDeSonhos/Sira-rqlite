@@ -1,9 +1,9 @@
 import datetime 
+from typing import Optional, List
 from colour import Color
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy_utils import ColorType
 from sqlalchemy import Date, Time, DateTime, ForeignKey, JSON
-from typing import Optional, List
 
 from database.base import Base
 
