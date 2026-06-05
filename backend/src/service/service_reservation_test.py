@@ -1,10 +1,18 @@
 import datetime
 
-from service_reservation import create_reservation, get_reservation
+from service_reservation \
+    import create_reservation, get_reservation, \
+           cancel_reservation, list_reservations, edit_reservation
+
+# import data for testing, while using static data
+from service_reservation_static_data import joao_data, maria_data
+
 import unittest
 
 class TestServiceReservation(unittest.TestCase):
-    
+
+# - creation tests ---------------------------------
+
     # testing a successful reservation creation
     def test_create_reservation(self):
         self.assertEqual(create_reservation(
@@ -43,6 +51,8 @@ class TestServiceReservation(unittest.TestCase):
                                                      
                                 })
         
+# - getting tests ----------------------------------------
+
     def test_get_reservation(self):
 
         # testing reservation id 1
@@ -87,3 +97,49 @@ class TestServiceReservation(unittest.TestCase):
         # testing reservation id that does not exist
         self.assertEqual(get_reservation(999), {"result":"error", "details":"Reservation not found, id=999"})
 
+# - cancellation tests ----------------------------------------
+
+    def test_cancel_reservation(self):
+        
+        # testing reservation id 1 cancellation
+        self.assertEqual(cancel_reservation(1, "Joao da Silva", "Aula cancelada pelo professor, será resposta depois"), 
+                         {"result":"ok", "details":"Reservation with id=1 cancelled by Joao da Silva"})
+
+        # testing reservation id 2 cancellation
+        self.assertEqual(cancel_reservation(2, "Maria Oliveira", "Reunião cancelada pela diretoria"), 
+                         {"result":"ok", "details":"Reservation with id=2 cancelled by Maria Oliveira"})
+
+        # testing reservation id that does not exist cancellation
+        self.assertEqual(cancel_reservation(999, "Joao da Silva", "Aula cancelada devido a feriado nacional"), 
+                         {"result":"error", "details":"Reservation not found, id=999"})
+        
+# - listing tests ----------------------------------------
+    
+    def test_list_reservations(self):
+        
+        self.assertEqual(list_reservations(), 
+                         {"result":"ok", "details": [joao_data, maria_data]})
+        
+# - editing tests ----------------------------------------
+
+    def test_edit_reservation(self):
+
+        # testing reservation id 1 edition
+        updated_reservation_data = joao_data
+        # changing data
+        updated_reservation_data["purpose"] = "Aula Info 302 - Optativa Web / Hylson - Aula Editada"
+
+        # execute the edition
+        new_reservation = edit_reservation(1, updated_reservation_data)
+        
+        # expected data: the new data with a NEW id (3 in static implementation)
+        expected_new_reservation = updated_reservation_data
+        expected_new_reservation['id'] = 3
+
+        # test the result!
+        self.assertEqual(new_reservation,
+                         {"result":"ok", "details":expected_new_reservation})
+        
+        # testing reservation id that does not exist edition
+        self.assertEqual(edit_reservation(999, updated_reservation_data), 
+                         {"result":"error", "details":"Reservation not found, id=999"})
