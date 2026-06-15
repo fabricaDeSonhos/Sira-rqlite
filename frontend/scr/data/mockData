@@ -1,0 +1,20 @@
+export const artifacts = [
+  { id: 1, name: 'Sala C16', category: 'Sala de aula', color: '#2563eb' },
+  { id: 2, name: 'Laboratório A04', category: 'Laboratório', color: '#7c3aed' },
+  { id: 3, name: 'Auditório', category: 'Auditório', color: '#ea580c' },
+  { id: 4, name: 'Doblô ABC-123', category: 'Veículo', color: '#16a34a' },
+  { id: 5, name: 'Sala de Reunião', category: 'Sala de reunião', color: '#0f766e' },
+]
+
+export const initialReservations = [
+  { id: 1, artifactId: 1, user: 'Manuela Lopes', date: '2026-06-14', startTime: '08:00', endTime: '10:00', purpose: 'Aula de Algoritmos', category: 'Aula', active: true, obs: 'Turma BCC 1ª fase' },
+  { id: 2, artifactId: 1, user: 'Helder Santos', date: '2026-06-14', startTime: '14:00', endTime: '16:00', purpose: 'Reunião do projeto', category: 'Reunião', active: true, obs: 'FabTec 2026' },
+  { id: 3, artifactId: 2, user: 'Gabriel Rodrigues', date: '2026-06-14', startTime: '09:00', endTime: '12:00', purpose: 'Prática de programação', category: 'Aula', active: true, obs: '' },
+  { id: 4, artifactId: 3, user: 'Hylson Vescovi', date: '2026-06-14', startTime: '14:00', endTime: '17:00', purpose: 'Palestra do projeto', category: 'Evento', active: true, obs: '' },
+  { id: 5, artifactId: 4, user: 'André ', date: '2026-06-14', startTime: '08:00', endTime: '09:00', purpose: 'Viagem externa', category: 'Transporte', active: true, obs: '' },
+  { id: 6, artifactId: 5, user: 'Yuri', date: '2026-06-14', startTime: '15:00', endTime: '16:30', purpose: 'Reunião de equipe', category: 'Reunião', active: true, obs: '' },
+  { id: 7, artifactId: 1, user: 'Marina', date: '2026-06-15', startTime: '09:00', endTime: '12:00', purpose: 'Atendimento acadêmico', category: 'Atendimento', active: true, obs: '' },
+  { id: 8, artifactId: 2, user: 'Gustavo', date: '2026-06-16', startTime: '13:00', endTime: '18:00', purpose: 'Mini-hackaton', category: 'Evento', active: true, obs: '' },
+  { id: 9, artifactId: 3, user: 'Coordenação', date: '2026-06-18', startTime: '08:00', endTime: '12:00', purpose: 'Formação institucional', category: 'Evento', active: true, obs: '' },
+  { id: 10, artifactId: 4, user: 'Secretaria', date: '2026-06-19', startTime: '10:00', endTime: '16:00', purpose: 'Deslocamento Blumenau', category: 'Transporte', active: true, obs: '' },
+]
