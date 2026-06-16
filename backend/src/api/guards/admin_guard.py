@@ -1,8 +1,16 @@
-from reservas.utils.exceptions import ForbiddenError
+
+from api.error_handlers import ForbiddenError
 
 
 def require_admin(user):
-    if not user or getattr(user, "role", None) != "admin":
+    """
+    Exige usuário administrador.
+    """
+
+    if not user:
+        raise ForbiddenError("Usuário não autenticado.")
+
+    if user.get("role") != "admin":
         raise ForbiddenError("Apenas administradores podem acessar este recurso.")
 
-    return Trueresponses.py
+    return True

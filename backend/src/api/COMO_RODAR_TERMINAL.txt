@@ -1,0 +1,48 @@
+
+No PowerShell:
+
+cd C:\Users\gabri\OneDrive\codigos\desenvolvimentoWeb\Sira_rqlite\backend
+
+
+2. CONFIGURAR O PYTHONPATH
+
+$env:PYTHONPATH = "src;src\service"
+
+
+3. Rode:
+
+python -c "from api.dependencies import get_reservation_service; print('dependencies ok')"
+
+
+4. Rode:
+
+python -c "from service.service_reservation import list_reservations; print('service ok')"
+
+
+5. Rode:
+
+python -c "from api.dependencies import get_reservation_service; service = get_reservation_service(); print(service.list_reservations())"
+
+
+6. RODAR TESTES COM PYTEST
+
+python -m pip install pytest
+
+Depois rode:
+
+python -m pytest src -q
+
+
+8. SE DER ERRO DE IMPORTAÇÃO
+
+Verifique se o PYTHONPATH foi configurado:
+
+python -c "import sys; print('\n'.join(sys.path))"
+
+
+10. COMANDO RESUMIDO PARA COMEÇAR UMA SESSÃO NOVA
+
+cd C:\Users\gabri\OneDrive\codigos\desenvolvimentoWeb\Sira_rqlite\backend
+$env:PYTHONPATH = "src;src\service"
+
+Depois rode os testes/imports desejados.
