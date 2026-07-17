@@ -4,10 +4,5 @@ from sqlalchemy.orm import DeclarativeBase
 engine = create_engine("sqlite:///fabtec.db", echo=False)
 
 class Base(DeclarativeBase):
+    """ Classe base para os modelos do SQLAlchemy. """
     pass
-
-def create_db():
-    Base.metadata.create_all(engine)
-
-def drop_db():
-    Base.metadata.drop_all(engine)
