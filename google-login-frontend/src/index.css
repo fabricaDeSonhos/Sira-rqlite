@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, system-ui, -apple-system, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
